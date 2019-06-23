@@ -30,9 +30,14 @@ public class Body {
 
         double xx;
         double yy;
+        //double test;
 
         xx = this.xxPos - c.xxPos;
         yy = this.yyPos - c.yyPos;
+        //test = Math.sqrt(xx * xx + yy * yy);
+        //System.out.println("-----0");
+        //System.out.println("xx = "+ xx +", yy = " + yy + ", test = " + test);
+        //System.out.println("-----0");
         return Math.sqrt(xx * xx + yy * yy);
     }
 
@@ -67,11 +72,15 @@ public class Body {
         double r;
         double dy;
         double fy;
-
+        System.out.println(d.imgFileName);
         r = this.calcDistance(d);
         f = this.calcForceExertedBy(d);
         dy = d.yyPos - this.yyPos;
+        //System.out.println("-----1");
+        //System.out.println("F = "+ f +", dy = " + dy + ", r = " + r);
+        //System.out.println("-----2");
         fy = (f * dy) / r;
+
         return fy;
     }
 
@@ -79,8 +88,13 @@ public class Body {
         double fx = 0;
 
         for (int i = 0; i < allbodys.length; i++) {
+            if (allbodys[i].equals(this)) {
+                continue;
+            }
             fx = fx + this.calcForceExertedByX(allbodys[i]);
+            //System.out.println(fx);
         }
+        //System.out.println(fx);
         return fx;
     }
 
@@ -89,6 +103,9 @@ public class Body {
         double fy = 0;
 
         for (int i = 0; i < allbodys.length; i++) {
+            if (allbodys[i].equals(this)) {
+                continue;
+            }
             fy = fy + this.calcForceExertedByY(allbodys[i]);
         }
         return fy;
