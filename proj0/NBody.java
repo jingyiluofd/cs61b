@@ -52,7 +52,6 @@ public class NBody{
              }
 
              for (int i = 0; i < 5; i++) {
-                //System.out.println(xForces[i]);
                 planets[i].update(time, xForces[i], yForces[i]);
              }
 
