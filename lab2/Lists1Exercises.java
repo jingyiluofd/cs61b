@@ -3,15 +3,6 @@ public class Lists1Exercises {
       * each element incremented by x. L is not allowed
       * to change. */
     public static IntList incrList(IntList L, int x) {
-        /* Your code here. */
-        //IntList head = new IntList(12312312, null);
-	//IntList p = head;
-        //while (L != null){
-        //     p.rest = new IntList(L.first + x, null);
-        //     L = L.rest;
-        //     p = p.rest;
-        //}
-        //return head.rest; 
 	if (L == null) {
 	    return null;
 	}
@@ -41,8 +32,6 @@ public class Lists1Exercises {
         L.rest = new IntList(7, null);
         L.rest.rest = new IntList(9, null);
 
-        // System.out.println(L.size());
-        // System.out.println(L.iterativeSize());
 
         // Test your answers by uncommenting. Or copy and paste the
         // code for incrList and dincrList into IntList.java and
@@ -53,8 +42,7 @@ public class Lists1Exercises {
 	    System.out.println("v2:" + in.first);
 	    in = in.rest;
 	}
-        // System.out.println(incrList(L, 3));
-        // System.out.println(dincrList(L, 3));        
+
     }
 }
 

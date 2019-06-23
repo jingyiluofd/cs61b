@@ -34,10 +34,6 @@ public class Body {
 
         xx = this.xxPos - c.xxPos;
         yy = this.yyPos - c.yyPos;
-        //test = Math.sqrt(xx * xx + yy * yy);
-        //System.out.println("-----0");
-        //System.out.println("xx = "+ xx +", yy = " + yy + ", test = " + test);
-        //System.out.println("-----0");
         return Math.sqrt(xx * xx + yy * yy);
     }
 
@@ -76,9 +72,6 @@ public class Body {
         r = this.calcDistance(d);
         f = this.calcForceExertedBy(d);
         dy = d.yyPos - this.yyPos;
-        //System.out.println("-----1");
-        //System.out.println("F = "+ f +", dy = " + dy + ", r = " + r);
-        //System.out.println("-----2");
         fy = (f * dy) / r;
 
         return fy;
@@ -92,9 +85,7 @@ public class Body {
                 continue;
             }
             fx = fx + this.calcForceExertedByX(allbodys[i]);
-            //System.out.println(fx);
         }
-        //System.out.println(fx);
         return fx;
     }
 
