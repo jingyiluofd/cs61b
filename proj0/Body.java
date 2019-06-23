@@ -30,7 +30,6 @@ public class Body {
 
         double xx;
         double yy;
-        //double test;
 
         xx = this.xxPos - c.xxPos;
         yy = this.yyPos - c.yyPos;
