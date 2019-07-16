@@ -78,7 +78,7 @@ public class ArrayDeque<T> {
      */
     public void addFirst(T item) {
         if (size == items.length) {
-            resize(size + 1);
+            resize(size * 4);
         }
         items[nextFirst] = item;
         size = size + 1;
@@ -95,7 +95,7 @@ public class ArrayDeque<T> {
      */
     public void addLast(T item) {
         if (size == items.length) {
-            resize(size + 1);
+            resize(size * 4);
         }
         items[nextLast] = item;
         size = size + 1;
@@ -144,6 +144,17 @@ public class ArrayDeque<T> {
     }
 
     /**
+     * Reduce the size of array deque.
+     */
+    private void reduceSize() {
+        double doubleSize = size;
+        double val = doubleSize / items.length;
+        if ((items.length >= 16) && val < 0.25) {
+            resize(size * 4);
+        }
+    }
+
+    /**
      * Removes and returns the item at the front of the deque.
      * If no such item exists, returns null.
      * @return
@@ -157,12 +168,7 @@ public class ArrayDeque<T> {
         }
         returnValue = items[nextFirst];
         items[nextFirst] = null;
-        double doubleSize = size;
-        double val = doubleSize / items.length;
-        System.out.println(val);
-        if ((items.length >= 16) && val < 0.25) {
-            resize(size * 4);
-        }
+        reduceSize();
         return returnValue;
     }
 
@@ -180,11 +186,7 @@ public class ArrayDeque<T> {
         }
         returnValue = items[nextLast];
         items[nextLast] = null;
-        double doubleSize = size;
-        double val = doubleSize / items.length;
-        if ((items.length >= 16) && val < 0.25) {
-            resize(size * 4);
-        }
+        reduceSize();
         return returnValue;
     }
 
