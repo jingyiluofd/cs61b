@@ -8,7 +8,6 @@ public class TestArrayDequeGold {
     public void testArraydeque() {
         StudentArrayDeque<Integer> sad1 = new StudentArrayDeque<>();
         ArrayDequeSolution<Integer> sad2 = new ArrayDequeSolution<>();
-        Integer x;
         ArrayList<String> logs = new ArrayList<String>();
 
 
@@ -18,7 +17,7 @@ public class TestArrayDequeGold {
             if (numberBetweenZeroAndOne < 0.5) {
                 sad1.addLast(i);
                 sad2.addLast(i);
-                logs.add("addLast[" + i + "]");
+                logs.add("addLast(" + i + ")");
             }
             else if (sad1.size() > 0 && numberBetweenZeroAndOne < 0.6) {
                 logs.add("removeLast()");
@@ -28,7 +27,7 @@ public class TestArrayDequeGold {
                 assertEquals(joinLogs(logs), sad2.removeFirst(), sad1.removeFirst());
             }
             else {
-                logs.add("addFist[" + i + "]");
+                logs.add("addFirst(" + i + ")");
                 sad1.addFirst(i);
                 sad2.addFirst(i);
             }
